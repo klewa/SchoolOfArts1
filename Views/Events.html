@@ -1,0 +1,43 @@
+﻿
+<div class="container" ng-controller="eventsController" ng-init="currentPage = 'Eventos'">
+    <div>
+        <nav class="hidden-xs hidden-sm">
+            <ul>
+                <li><a href="#UpcomingEvents" du-smooth-scroll du-scrollspy>> Próximos eventos</a></li>
+                <!--<li><a href="#Archive" du-smooth-scroll du-scrollspy>> Arquivo</a></li>-->
+            </ul>
+        </nav>
+        <div class="row">
+
+            <div class="row">
+                <landing-element current-page="{{currentPage}}"></landing-element>
+            </div>
+
+            <div class="col-md-10 col-md-push-1">
+
+                <div id="UpcomingEvents" class="section">
+                    <div class="horizontalSeparator"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h2>Eventos</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                              
+                                <div ng-repeat="event in Events |orderBy: '-Date' | limitTo: currentLimit  ">
+                                    <event date="{{event.Date}}" title="{{event.Title}}" resume="{{event.Resume}}" 
+                                           image-url="{{event.ImageUrl}}" download-url="{{picturesDownloadUrl}}" id="{{event.id}}"></event>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button ng-click="increaseDisplayLimit()" ng-show="hasMoreEvents()">Mais</button>
+                </div>
+                <div class="thinLine"></div>
+            </div>
+        </div>
+        <go-up-control></go-up-control>
+    </div>
+</div>
+<contact-footer></contact-footer>

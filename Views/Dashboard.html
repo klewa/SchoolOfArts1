@@ -1,0 +1,175 @@
+﻿<style>
+    .tabs-left, .tabs-right {
+        border-bottom: none;
+        padding-top: 2px;
+    }
+
+    .tabs-left {
+        border-right: 1px solid #ddd;
+    }
+
+    .tabs-right {
+        border-left: 1px solid #ddd;
+    }
+
+        .tabs-left > li, .tabs-right > li {
+            float: none;
+            margin-bottom: 2px;
+        }
+
+    .tabs-left > li {
+        margin-right: -1px;
+    }
+
+    .tabs-right > li {
+        margin-left: -1px;
+    }
+
+    .tabs-left > li.active > a,
+    .tabs-left > li.active > a:hover,
+    .tabs-left > li.active > a:focus {
+        border-bottom-color: #ddd;
+        border-right-color: transparent;
+    }
+
+    .tabs-right > li.active > a,
+    .tabs-right > li.active > a:hover,
+    .tabs-right > li.active > a:focus {
+        border-bottom: 1px solid #ddd;
+        border-left-color: transparent;
+    }
+
+    .tabs-left > li > a {
+        border-radius: 4px 0 0 4px;
+        margin-right: 0;
+        display: block;
+    }
+
+    .tabs-right > li > a {
+        border-radius: 0 4px 4px 0;
+        margin-right: 0;
+    }
+
+    .categoryLine {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    .subcategoryLine {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .dashboard-padding 
+    {
+        padding-top:310px;
+    }
+</style>
+
+<div>
+    <div class="dashboard-padding visible-md visible-lg"></div>
+    <div class="col-md-10 col-md-push-1">
+        <div class="row">
+            <div class="col-xs-5">
+                <h3>Administração da Página</h3>
+            </div>
+            <div class="col-xs-5 col-sm-3 col-md-3 col-lg-2 pull-right">
+                <a class="btn btn-primary btn-block" href="https://html-online.com/editor" target="_blank">HTML Editor Online</a>
+            </div>
+            
+        </div>
+        
+        <hr />
+        <div class="row">
+            <div class="col-xs-4 col-md-3">
+                <!-- required for floating -->
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs tabs-left sideways" ng-click="menuClicked()">
+                    <li class="active"><a data-target="#EscolaDeArtes" data-toggle="tab">Escola de Artes</a></li>
+                    <li><a data-target="#Secretaria" data-toggle="tab">Secretaria</a></li>
+                    <li><a data-target="#Informacoes" data-toggle="tab">Informações Gerais</a></li>
+                    <li><a data-target="#Danca" data-toggle="tab">Cursos / Dança</a></li>
+                    <li><a data-target="#Musica" data-toggle="tab">Cursos / Música</a></li>
+                    <li><a data-target="#CorpoDocente" data-toggle="tab">Corpo Docente</a></li>
+                    <li><a data-target="#Eventos" data-toggle="tab">Eventos</a></li>
+                    <li><a data-target="#ImpressosDocumentos" data-toggle="tab">Impressos e Documentos</a></li>
+                    <li><a data-target="#Contacto" data-toggle="tab">Contacto</a></li>
+                    <li class="hidden"><a data-target="#Utilizadores" data-toggle="tab">Utilizadores</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-8 col-md-9" ng-controller="dashboardController">
+                <div ng-show="ShowArticle">
+                    <div ng-include="'Views/Templates/Edition/ArticleEdit.html'"></div>
+                </div>
+                <div ng-show="ShowContactInfoEdit">
+                    <div ng-include="'Views/Templates/Edition/ContactInfoEdit.html'"></div>
+                </div>
+                <div ng-show="ShowEventEdit">
+                    <div ng-include="'Views/Templates/Edition/EventEdit.html'"></div>
+                </div>
+                <div ng-show="ShowEmployeeEdit">
+                    <div ng-include="'Views/Templates/Edition/EmployeeEdit.html'"></div>
+                </div>
+                <div ng-show="ShowAcademicYearEdit">
+                    <div ng-include="'Views/Templates/Edition/AcademicYearEdit.html'"></div>
+                </div>
+                <div ng-show="ShowDocumentEdit">
+                    <div ng-include="'Views/Templates/Edition/FileEdit.html'"></div>
+                </div>
+                <div ng-show="ShowMessageEdit">
+                    <div ng-include="'Views/Templates/Edition/MessageEdit.html'"></div>
+                </div>
+                <div ng-show="ShowOfficeHoursEdit">
+                    <div ng-include="'Views/Templates/Edition/OfficeHoursEdit.html'"></div>
+                </div>
+                <div ng-show="ShowHistoryEdit">
+                    <div ng-include="'Views/Templates/Edition/HistoryEdit.html'"></div>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content" ng-show="ShowTree">
+
+                    <div class="tab-pane active" id="EscolaDeArtes">
+                        <div ng-include="'Views/Templates/Dashboard.Home.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Secretaria">
+                        <div ng-include="'Views/Templates/Dashboard.Secretary.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Informacoes">
+                        <div ng-include="'Views/Templates/Dashboard.Information.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Musica">
+                        <div ng-include="'Views/Templates/Dashboard.Music.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Danca">
+                        <div ng-include="'Views/Templates/Dashboard.Dance.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="CorpoDocente">
+                        <div ng-include="'Views/Templates/Dashboard.Staff.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Eventos">
+                        <div ng-include="'Views/Templates/Dashboard.Events.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="ImpressosDocumentos">
+                        <div ng-include="'Views/Templates/Dashboard.Documents.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Contacto">
+                        <div ng-include="'Views/Templates/Dashboard.Contact.html'"></div>
+                    </div>
+
+                    <div class="tab-pane" id="Utilizadores">
+                        <div ng-include="'Views/Templates/Dashboard.Users.html'"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

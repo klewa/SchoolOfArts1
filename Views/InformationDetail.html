@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <div class="row" ng-init="currentPage = 'Informações Gerais e Cursos'">
+
+        <div class="row">
+            <landing-element current-page="{{currentPage}}"></landing-element>
+        </div>
+        <div id="scrollingAnchor"></div>
+        <div class="col-xs-10 col-xs-push-1">
+            <div id="section-1" class="section">
+                <div class="horizontalSeparator hideme"></div>
+                <div class="emptySeparator"></div>
+                <div ng-show="!Article.ImageUrl && !Article.Content">
+                    <h1>Sem informação</h1>
+                </div>
+
+                <div ng-bind-html="Article.Content"></div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img ng-show="Article.ImageUrl" ng-src="{{picturesDownloadUrl}}/{{Article.ImageUrl}}" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div class="thinLine"></div>
+            <go-up-control></go-up-control>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿<div class="container">
+    <div>
+        <nav class="hidden-xs hidden-sm">
+            <ul>
+                <li><a href="#Staff#section-1" du-smooth-scroll du-scrollspy>> Professores</a></li>
+                <li><a href="#Staff#section-2" du-smooth-scroll du-scrollspy>> Funcionários</a></li>
+            </ul>
+        </nav>
+
+        <div class="row" ng-init="currentPage = 'Corpo Docente e Funcionários'">
+
+            <div class="row">
+                <landing-element current-page="{{currentPage}}"></landing-element>
+            </div>
+
+            <div class="col-md-10 col-md-push-1">
+                <div id="section-1" class="section">
+                    <div class="horizontalSeparator hideme"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-2 hideme">
+                            <h1>Professores</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9">
+                                <div ng-repeat="Employee in Teachers" style="margin: 0 auto">
+                                    <employee name="{{Employee.Name}}" surname="{{Employee.Surname}}"
+                                              discipline="{{Employee.Discipline}}" image-url="{{Employee.Image}}" sex="{{Employee.Sex}}"
+                                              download-url="{{downloadUrl}}" biography ="{{Employee.Biography}}"></employee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thinLine"></div>
+
+                <div id="section-2" class="section">
+                    <div class="horizontalSeparator hideme"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-2 hideme">
+                            <h1>Funcionários</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9">
+                                <div ng-repeat="Employee in OtherEmployees" style="margin: 0 auto">
+                                    <employee name="{{Employee.Name}}" surname="{{Employee.Surname}}" sex="{{Employee.Sex}}"
+                                              discipline="{{Employee.Discipline}}" image-url="{{Employee.Image}}" download-url="{{downloadUrl}}" biography="{{Employee.Biography}}"></employee>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thinLine"></div>
+                <go-up-control></go-up-control>
+            </div>
+        </div>
+    </div>
+</div>
+<contact-footer></contact-footer>

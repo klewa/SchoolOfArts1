@@ -1,0 +1,38 @@
+﻿<style>
+    .post-content {
+        background: none repeat scroll 0 0 rgba(58,164,132, 0.5);
+        margin: 0 auto;
+        margin-right: 10px;
+        margin-top: -200px;
+        text-align: center;
+        position: relative;
+        width: 70%;
+        height: 200px;
+    }
+    .thumbnail {
+        margin: 0 auto;
+        text-align: center;
+        border: 0px;
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+
+       .post-content > h1 {
+            color: white;
+        }
+</style>
+
+<div class="thumbnail">
+    <img src="../../Resources/BackgroundImages/keyboard-instrument-music-old-antique-51360.jpeg" class="img-responsive" />
+    <!--<div style="height: 600px; opacity:1"></div>-->
+    <div class="wrapper">
+        <div id="pageNameAnchor" class="post-content whiteContent">
+            <h1>{{currentPage}}</h1>
+        </div>
+    </div>
+    <div id="goDownElement">
+        <a class="goDown"><span class="glyphicon glyphicon-chevron-down glyphicon-lg handCursor" ng-click="gotoElement('section-1')" /></a>
+    </div>
+</div>

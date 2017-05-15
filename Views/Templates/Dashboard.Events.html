@@ -1,0 +1,16 @@
+﻿<div>
+    <div class="row">
+        <div>
+            <h3 class="col-md-10">» Eventos</h3>
+            <button ng-click="editEvent(null, true)" class="col-md-2">Novo</button>
+            <div class="row">
+                <div ng-repeat="event in Events |orderBy: '-Date' ">
+                    <h4 class="col-md-5 col-md-offset-1" title="{{event.Title}}">{{event.Date | date: 'dd'}}/{{event.Date | date: 'MM'}}/{{event.Date | date: 'yyyy'}}</h4>
+                    <button ng-click="editEvent(event)" class="col-md-2">Editar</button>
+                    <button class="col-md-2" ng-click="deleteEvent(event)">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

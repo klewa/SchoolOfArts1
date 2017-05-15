@@ -1,0 +1,41 @@
+﻿<style>
+    .footer {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+20,474747+33,000000+50,2c2c2c+50,111111+60,2b2b2b+76,1c1c1c+91,131313+100 */
+background: #4c4c4c; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #4c4c4c 0%, #595959 12%, #666666 20%, #474747 33%, #000000 50%, #2c2c2c 50%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #4c4c4c 0%,#595959 12%,#666666 20%,#474747 33%,#000000 50%,#2c2c2c 50%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #4c4c4c 0%,#595959 12%,#666666 20%,#474747 33%,#000000 50%,#2c2c2c 50%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+</style>
+<footer id="footer" class="footer" ng-controller="contactInfoController">
+    <div class="container">
+        <div class="row" style="margin-top:75px;">
+            <div class="col-md-3">
+                <h2>Escola de Artes</h2>
+                <address>
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    {{Contact.Line1}}<br>
+                    {{Contact.Line2}}<br>
+                    {{Contact.Line3}}<br>
+                    {{Contact.PostalCode}} {{Contact.City}}<br>
+                    {{Contact.Country}}<br>
+                    <span ng-show="Contact.Telephone" class="glyphicon glyphicon-phone-alt"></span> {{Contact.Telephone}}<br>
+                    <span ng-show="Contact.Mobile" class="glyphicon glyphicon-earphone"></span> {{Contact.Mobile}}<br>
+                    <span ng-show="Contact.Email" class="glyphicon glyphicon-envelope"></span> {{Contact.Email}}<br>
+                    <i ng-show="Contact.Skype" class="fa fa-skype fa-lg" aria-hidden="true"></i> {{Contact.Skype}}<br>
+                </address>
+                <img src="../Resources/Images/EAIFCT (2012).jpg" class="img-circle hidden-xs hidden-sm" />
+            </div>
+
+            <div class="col-md-9">
+                <iframe frameborder="0" style="opacity:0.95"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2625.013812519406!2d2.292872!3d48.857947!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8ddca9ee380ef7e0!2sWie%C5%BCa+Eiffla!5e0!3m2!1spl!2sus!4v1494625192129"
+                        height="700px" width="100%" allowfullscreen></iframe>
+            </div>
+
+
+
+        </div>
+    </div>
+</footer>

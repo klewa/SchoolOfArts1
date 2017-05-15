@@ -1,0 +1,30 @@
+﻿
+
+<div class="menuFile col-xs-5 col-md-6 col-lg-4">
+    <div class="upperFile"></div>
+    <div class="bodyWrap">
+        <div class="row">
+            <div class="fileBody">
+                <div class="col-md-2 visible-md visible-lg"><i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i></div>
+                <div class="col-xs-2 visible-sm"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></div>
+                <div class="col-xs-2 visible-xs"><i class="fa fa-file-pdf-o fa-1x" aria-hidden="true"></i></div>
+                <div class="col-xs-10 col-md-10">
+                    <h3>{{fileTitle}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-5 col-md-8 col-md-offset-5">
+                <div class="btn-group">
+                    <a ng-href="{{downloadPath}}/{{maleFileSrc}}" download="{{maleFileSrc}}" class="btn btn-default" ng-show="maleFileSrc | removeSpaces" popover="{{malePopover}}"
+                       popover-trigger="mouseenter"
+                       popover-placement="top"><i class="fa fa-mars fa-1x visible-xs visible-sm" aria-hidden="true"></i><i class="fa fa-mars fa-lg visible-md visible-lg" aria-hidden="true"></i></a>
+                    <a ng-href="{{downloadPath}}/{{femaleFileSrc}}" download="{{femaleFileSrc}}" class="btn btn-default" ng-show="femaleFileSrc | removeSpaces" popover="{{femalePopover}}"
+                       popover-trigger="mouseenter"
+                       popover-placement="top"><i class="fa fa-venus fa-1x visible-xs visible-sm" aria-hidden="true"></i><i class="fa fa-venus fa-lg visible-md visible-lg" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="fileFooter"></div>
+    </div>
+</div>

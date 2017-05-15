@@ -1,0 +1,102 @@
+﻿<style>
+    .thumb {
+        width: 400px;
+        height: 350px;
+        float: none;
+        position: relative;
+        top: 7px;
+        margin-bottom: 10px;
+    }
+
+    form .progress {
+        line-height: 15px;
+    }
+
+    }
+
+    .progress {
+        display: inline-block;
+        width: 100px;
+        border: 3px groove #CCC;
+    }
+
+        .progress div {
+            font-size: smaller;
+            background: orange;
+            width: 0;
+        }
+</style>
+<div>
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>Funcionário</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" enctype="multipart/form-data" name="employeeForm" ng-submit="saveEmployee(EmployeeToEdit, picFile)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Nome" tabindex="1" ng-model="EmployeeToEdit.Name"
+                                   tooltip="Nome e Apelido" tooltip-placement="right" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" name="description" id="description" class="form-control input-sm" tabindex="2" placeholder="Biografia"
+                                      rows="20" cols="20" ng-model="EmployeeToEdit.Biography" tooltip="Biografia" tooltip-placement="right"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="discipline" id="discipline" class="form-control input-lg" tooltip="Disciplina" tooltip-placement="right"
+                                   placeholder="Disciplina" tabindex="1" ng-model="EmployeeToEdit.Discipline" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>Função:  {{EmployeeToEdit.IsTeacher | ProfessorOrNot}}</h4>
+                            <div class="btn-group">
+                                <label class="btn btn-primary" ng-model="EmployeeToEdit.IsTeacher" btn-radio="true">Docente</label>
+                                <label class="btn btn-primary" ng-model="EmployeeToEdit.IsTeacher" btn-radio="false">Não Docente</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h4>Sexo:  {{EmployeeToEdit.Sex | employeeSexToWords}}</h4>
+                            <div class="btn-group">
+                                <label class="btn btn-primary" employee-sex-value-converter ng-model="EmployeeToEdit.Sex" btn-radio="true" tooltip="Homem"><i class="fa fa-mars fa-lg" aria-hidden="true"></i></label>
+                                <label class="btn btn-primary" employee-sex-value-converter ng-model="EmployeeToEdit.Sex" btn-radio="false" tooltip="Mulher"><i class="fa fa-venus fa-lg" aria-hidden="true"></i></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>Fotografia:
+                            <br />
+                            <img ng-show="EmployeeToEdit.Image" ng-src="{{picturesDownloadUrl}}/{{EmployeeToEdit.Image}}" class="thumb">
+
+                            <input type="file" ngf-select ng-model="picFile" name="file"
+                                   accept="image/*"
+                                   ngf-model-invalid="errorFile">
+                            <i ng-show="employeeForm.file.$error.required">*required</i><br>
+                            <i ng-show="employeeForm.file.$error.maxSize">
+                                File too large
+                                {{errorFile.size / 1000000|number:1}}MB: max 2M
+                            </i>
+                            <img ng-show="employeeForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
+                            <button ng-click="picFile = null" ng-show="picFile.size" class="btn btn-primary btn-sm" type="button">Remover</button>
+                            <br>
+                            <span class="progress" ng-show="picFile.progress >= 0">
+                                <div style="width:{{picFile.progress}}%"
+                                     ng-bind="picFile.progress + '%'"></div>
+                            </span>
+                            <span ng-show="picFile.result">Upload Successful</span>
+                            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5 col-md-3 pull-right">
+                    <button class="btn btn-primary btn-block" type="reset" data-dismiss="modal" aria-label="Close" ng-click="cancel()">Cancelar</button>
+                </div>
+                <div class="col-xs-5 col-md-3 pull-right">
+                    <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row">
+
+</div>-->

@@ -1,0 +1,38 @@
+﻿<style>
+    .answer {
+        display: none;
+    }
+</style>
+
+<article class="eventMiniature">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-2 col-md-1 text-right">
+                <span class="glyphicon glyphicon-calendar glyphicon-lg"></span><br />
+                <span>{{date | date:'dd'}}</span><br />
+                <span>{{date | monthNumberToWord}}</span><br />
+                <span>{{date | date:'yyyy'}}</span><br />
+            </div>
+            <div class="col-xs-4 col-md-4">
+                <a ng-href="#/EventDetail/{{id}}"><img ng-src="{{downloadUrl}}/{{imageUrl}}" class="img-responsive" ng-show="imageUrl" /></a>
+                <a ng-href="#/EventDetail/{{id}}"><img src="../../Resources/Images/SVG/noImage.png" class="img-responsive" ng-hide="imageUrl" /></a>
+            </div>
+
+            <div class="col-xs-6  col-md-7">
+                <d-expand-collapse>
+                    <div class="row">
+                        <h2>{{title}}</h2>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div ng-bind-html="resume"></div>
+                    </div>
+                </d-expand-collapse>
+            </div>
+            <hr />
+        </div>
+        <hr />
+    </div>
+</article>

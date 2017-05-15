@@ -1,0 +1,160 @@
+﻿<style>
+    .answer {
+        display: none;
+    }
+
+    @media (max-width: @screen-xs) {
+    body{font-size: 10px;}
+}
+
+@media (max-width: @screen-sm) {
+    h3{font-size: 3px;}
+}
+h3{
+    font-size: 1em;
+}
+
+h2{
+    font-size: 1.2em;
+}    
+
+</style>
+
+<div class="container" ng-controller="documentsController" ng-init="currentPage = 'Documentos e Impressos'">
+    <div>
+        <nav class="hidden-xs hidden-sm">
+            <ul>
+                <li><a href="#Informacoes#section-1" du-smooth-scroll du-scrollspy>> Horários e Funcionamento</a></li>
+                <li><a href="#Informacoes#section-2" du-smooth-scroll du-scrollspy>> Inscrição</a></li>
+                <li><a href="#Informacoes#section-3" du-smooth-scroll du-scrollspy>> Termos de Responsabilidade</a></li>
+            </ul>
+        </nav>
+
+        <div class="row">
+
+            <div class="row">
+                <landing-element current-page="{{currentPage}}"></landing-element>
+            </div>
+
+            <div class="col-md-10 col-md-push-1">
+
+                <div id="section-1" class="section">
+                    <div class="horizontalSeparator"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row" ng-controller="documentsMenuController">
+                        <div class="col-md-2">
+                            <h2>Horários e Funciona<wbr />mento</h2>
+                        </div>
+                        <div class="row col-xs-offset-1 col-md-offset-0 col-md-10">
+                            <div class="row">
+                                <div class="row">
+                                    <download-file file-title="{{Documents['TIMETAB_DAN'].Title}}" file-src={{Documents['TIMETAB_DAN'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_DAN'].Resume}}"></download-file>
+                                    <download-file file-title="{{Documents['FUN_CALEND'].Title}}" file-src={{Documents['FUN_CALEND'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['FUN_CALEND'].Resume}}"></download-file>
+                                    <download-file file-title="{{Documents['FUN_NORMS'].Title}}" file-src={{Documents['FUN_NORMS'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['FUN_NORMS'].Resume}}"></download-file>
+                                </div>
+                                <div class="row">
+                                    <menu-brick menu-title="Horários Música" ng-click="openChild(2, 0, $event)" is-selected="{{isActiveSelection(1,0)}}"></menu-brick>
+                                    <menu-brick menu-title="Indumentária" ng-click="openChild(2, 1, $event)" is-selected="{{isActiveSelection(1,1)}}"></menu-brick>
+                                    <!---->
+                                </div>
+                            </div>
+
+                            <div id="scrollingAnchorLevel2"></div>
+
+                            <div class="row" ng-show="isVisible(2, 0)">
+                                <go-down-control></go-down-control>
+                                <menu-brick menu-title="Instrumentos / Canto" ng-click="openChild(3, 0, $event)" is-selected="{{isActiveSelection(2,0)}}"></menu-brick>
+                                <download-file title="Classes de Conjunto Ano Letivo 2016/2017" file-src={{Documents['TIMETAB_BATERIA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_BATERIA'].Resume}}"></download-file>
+                            </div>
+
+                            <div id="scrollingAnchorLevel3"></div>
+                            <div ng-show="isVisible(2, 1)">
+                                <go-down-control></go-down-control>
+                                <div class="panel panel-success" >
+                                    <div class="panel-heading">Indumentária</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_BARRA_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_BARRA_M'].Url}}" male-popover="{{Documents['FUN_INDUM_BARRA_M'].Resume}}" download-path="{{pdfsDownloadUrl}}" female-popover="{{Documents['FUN_INDUM_BARRA_F'].Resume}}" file-title="Barra de Chão"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_DAN_CONTEMP_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_DAN_CONTEMP_M'].Url}}" download-path={{pdfsDownloadUrl}} male-popover="{{Documents['FUN_INDUM_DAN_CONTEMP_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_DAN_CONTEMP_F'].Resume}}" file-title="Dança Contemporânea"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_DAN_CRIATIVA_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_DAN_CRIATIVA_M'].Url}}" download-path={{pdfsDownloadUrl}} male-popover="{{Documents['FUN_INDUM_DAN_CRIATIVA_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_DAN_CRIATIVA_F'].Resume}}" file-title="Dança Criativa"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_HH_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_HH_M'].Url}}" download-path={{pdfsDownloadUrl}} file-title="Hip-Hop" male-popover="{{Documents['FUN_INDUM_HH_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_HH_F'].Resume}}"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_HHKIDSMINIS_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_HHKIDSMINIS_M'].Url}}" download-path={{pdfsDownloadUrl}} file-title="Hip-Hop Minis e Kids" male-popover="{{Documents['FUN_INDUM_HHKIDSMINIS_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_HHKIDSMINIS_F'].Resume}}"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_PONTAS_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_PONTAS_M'].Url}}" download-path={{pdfsDownloadUrl}} file-title="Pontas" male-popover="{{Documents['FUN_INDUM_PONTAS_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_PONTAS_F'].Resume}}"></download-files>
+                                            <download-files female-file-src="{{Documents['FUN_INDUM_PREBALLET_BALLET_F'].Url}}" male-file-src="{{Documents['FUN_INDUM_PREBALLET_BALLET_M'].Url}}" download-path={{pdfsDownloadUrl}} file-title="Pré-Ballet e Ballet" male-popover="{{Documents['FUN_INDUM_PREBALLET_BALLET_M'].Resume}}" female-popover="{{Documents['FUN_INDUM_PREBALLET_BALLET_F'].Resume}}"></download-files>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div ng-show="isVisible(3, 0)">
+                                <go-down-control></go-down-control>
+                                <div class="panel panel-success" >
+                                    <div class="panel-heading">Horários Música » Instrumentos / Canto</div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <download-file file-title="Bateria" file-src={{Documents['TIMETAB_BATERIA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_BATERIA'].Resume}}"></download-file>
+                                            <download-file file-title="Canto" file-src={{Documents['TIMETAB_CANTO'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_CANTO'].Resume}}"></download-file>
+                                            <download-file file-title="Contrabaixo" file-src={{Documents['TIMETAB_CONTRABAIXO'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_CONTRABAIXO'].Resume}}"></download-file>
+                                            <download-file file-title="Flauta Transversal" file-src={{Documents['TIMETAB_FLAUTA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_FLAUTA'].Resume}}"></download-file>
+                                            <download-file file-title="Guitarra" file-src={{Documents['TIMETAB_GUITARRA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_GUITARRA'].Resume}}"></download-file>
+                                            <download-file file-title="Harpa" file-src={{Documents['TIMETAB_HARPA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_HARPA'].Resume}}"></download-file>
+                                            <download-file file-title="Oboé" file-src={{Documents['TIMETAB_OBOE'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_OBOE'].Resume}}"></download-file>
+                                            <download-file file-title="Piano" file-src={{Documents['TIMETAB_PIANO'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_PIANO'].Resume}}"></download-file>
+                                            <download-file file-title="Saxofone" file-src={{Documents['TIMETAB_SAXOFONE'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_SAXOFONE'].Resume}}"></download-file>
+                                            <download-file file-title="Trompete" file-src={{Documents['TIMETAB_TROMPETE'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_TROMPETE'].Resume}}"></download-file>
+                                            <download-file file-title="Viola D'Arco" file-src={{Documents['TIMETAB_VIOLA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_VIOLA'].Resume}}"></download-file>
+                                            <download-file file-title="Violino" file-src={{Documents['TIMETAB_VIOLINO'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_VIOLINO'].Resume}}"></download-file>
+                                            <download-file file-title="Violoncelo" file-src={{Documents['TIMETAB_VIOLONCELO'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['TIMETAB_VIOLONCELO'].Resume}}"></download-file>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div id="section-2" class="section">
+                    <div class="horizontalSeparator"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-md-2 hideme">
+                            <h2>Inscrição</h2>
+                        </div> 
+                        <div class="row hideme row col-md-10">
+                            <download-file file-title="{{Documents['INS_FICHA'].Title}}" file-src={{Documents['INS_FICHA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['INS_FICHA'].Resume}}"></download-file>
+                            <download-file file-title="{{Documents['INS_PROPOSTA'].Title}}" file-src={{Documents['INS_PROPOSTA'].Url}} download-path={{pdfsDownloadUrl}} popover="{{Documents['INS_PROPOSTA'].Resume}}"></download-file>
+                        </div>
+                    </div>
+
+                    <div class="thinLine"></div>
+                </div>
+
+                <div id="section-3" class="section">
+                    <div class="horizontalSeparator"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-md-2 hideme">
+                            <h2>Termos de Responsabilidade</h2>
+                        </div>
+                        <div class="row hideme col-md-10">
+                            <div>
+                                <download-file text-limit="50" file-title={{Documents['TERMS_RESP_DESP'].Title}}  popover="{{Documents['TERMS_RESP_DESP'].Resume}}"
+                                               file-src={{Documents['TERMS_RESP_DESP'].Url}} download-path={{pdfsDownloadUrl}}></download-file>
+                            </div>
+                            <div>
+                                <download-file text-limit="50" file-title={{Documents['TERMS_RESP_USO_INSTR'].Title}} popover="{{Documents['TERMS_RESP_USO_INSTR'].Resume}}"
+                                               file-src={{Documents['TERMS_RESP_USO_INSTR'].Url}} download-path={{pdfsDownloadUrl}}></download-file>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="thinLine"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <go-up-control></go-up-control>
+    </div>
+</div>
+<contact-footer></contact-footer>

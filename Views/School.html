@@ -1,0 +1,44 @@
+﻿<style>
+    .firstSection {
+        background: none repeat scroll 0 0 #324ce4;
+    }
+</style>
+
+<div class="container" ng-controller="homeController" ng-init="currentPage = 'Escola de Artes'">
+
+    <div>
+        <nav>
+            <ul>
+                <li><a href="##section-1" du-smooth-scroll du-scrollspy>> História</a></li>
+            </ul>
+        </nav>
+
+        <div class="row">
+
+            <div class="row">
+                <landing-element current-page="{{currentPage}}"></landing-element>
+            </div>
+
+            <div class="col-xs-10 col-xs-push-1">
+                <div id="section-1" class="section">
+                    <div class="horizontalSeparator"></div>
+                    <div class="emptySeparator"></div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-2">
+                            <h1>História</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9">
+                                <div  style="font-size:x-large" ng-bind-html="History"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thinLine"></div>
+            </div>
+        </div>
+        <go-up-control></go-up-control>
+    </div>
+    
+</div>
+<contact-footer></contact-footer>

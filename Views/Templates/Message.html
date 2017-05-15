@@ -1,0 +1,26 @@
+﻿<article>
+        <div class="row">
+            <div class="col-xs-2 col-lg-1 text-right">
+                <span class="glyphicon glyphicon glyphicon-envelope glyphicon-lg"></span><br />
+                <span>{{validityDate | date:'dd'}}</span><br />
+                <span>{{validityDate | monthNumberToWord}}</span><br />
+                <span>{{validityDate | date:'yyyy'}}</span><br />
+            </div>
+
+            <div class="col-xs-9 col-lg-11">
+                <d-expand-collapse>
+                    <div class="row">
+                        <h2>{{title}}</h2>
+                    </div>
+
+                    <div class="row">
+                        <p ng-bind-html="message"></p>
+                        <small class="pull-right">Publicado a: {{publicationDate  | date:'dd/MM/yyyy'}}</small> <br />
+                    </div>
+                </d-expand-collapse>
+                
+            </div>
+            <hr />
+        </div>
+        <hr />
+</article>

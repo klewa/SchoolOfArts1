@@ -1,0 +1,51 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>Horário</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" enctype="multipart/form-data" name="employeeForm" ng-submit="saveOfficeHours(OfficeHoursToEdit)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Dia da semana" tabindex="1" ng-model="OfficeHoursToEdit.Day"
+                                   tooltip="Dia da semana" tooltip-placement="right" required autofocus>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5 col-sm-3 col-md-2">
+                                <div class="form-group">
+                                    <select class="form-control input-lg"
+                                            ng-options="x for x in [1,2,3,4,5,6,7]" ng-model="OfficeHoursToEdit.OrderNumber"
+                                            name="eventMonth" id="eventMonth" placeholder="Ordem na página" tooltip="Ordem na página" tooltip-placement="right"></select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" name="discipline" id="discipline" class="form-control input-lg" placeholder="Horário" 
+                                   tooltip="Horário" tooltip-placement="right" tabindex="1" ng-model="OfficeHoursToEdit.Hours" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>Tipo de horário: {{OfficeHoursToEdit.HourType | HourTypeToWord}}</h4>
+                            <div class="btn-group">
+                                <label class="btn btn-success" ng-model="OfficeHoursToEdit.HourType" btn-radio="true">Secretaria</label>
+                                <label class="btn btn-info" ng-model="OfficeHoursToEdit.HourType" btn-radio="false">Aulas</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" ng-click="cancel()" type="reset">Cancelar</button>
+                    </div>
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

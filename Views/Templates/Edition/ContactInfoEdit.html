@@ -1,0 +1,75 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>Contactos</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" ng-submit="saveContact(Contact)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="Street1" id="Street1" class="form-control input-lg" placeholder="Morada Linha 1" tabindex="1" tooltip="Morada Linha 1" tooltip-placement="right" ng-model="Contact.Line1">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="Street2" id="Street2" class="form-control input-lg" placeholder="Morada Linha 2" tooltip="Morada Linha 2" tooltip-placement="right" tabindex="2" ng-model="Contact.Line2">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <input type="text" name="Street2" id="Street2" class="form-control input-lg" placeholder="Morada Linha 3" tooltip="Morada Linha 3" tooltip-placement="right" tabindex="3" ng-model="Contact.Line3">
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="PostalCode" id="PostalCode" class="form-control input-lg" placeholder="Código Postal" tooltip="Código Postal" tooltip-placement="right" tabindex="4" ng-model="Contact.PostalCode">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="City" id="Localidade" class="form-control input-lg" placeholder="Localidade" tooltip="Localidade" tooltip-placement="right" tabindex="5" tooltip="Descrição do evento" tooltip-placement="right" ng-model="Contact.City">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="tel" name="LandlineTel" id="LandlineTel" class="form-control input-lg" placeholder="Telefone fixo" tooltip="Telefone fixo" tooltip-placement="right" tabindex="6" ng-model="Contact.Telephone">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <input type="tel" name="MobilePhone" id="MobilePhone" class="form-control input-lg" placeholder="Telemóvel" tabindex="7" tooltip="Telemóvel" tooltip-placement="right" ng-model="Contact.Mobile">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-12">
+                        <div class="form-group">
+                            <input type="email" name="Email" id="e-mail" class="form-control input-lg" placeholder="E-mail" tabindex="8" tooltip="E-mail" tooltip-placement="right" ng-model="Contact.Email">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="id="Skype" id="Skype" class="form-control input-lg" placeholder="Skype ID" tabindex="9" tooltip="Skype ID" tooltip-placement="right" ng-model="Contact.Skype">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-5 col-md-3 pull-right">
+                    <button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" ng-click="cancel()" type="reset">Cancelar</button>
+                </div>
+                <div class="col-xs-5 col-md-3 pull-right">
+                    <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

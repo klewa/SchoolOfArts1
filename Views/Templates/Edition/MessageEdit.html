@@ -1,0 +1,66 @@
+﻿
+<div>
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>Anúncio</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" ng-submit="saveMessage(MessageToEdit)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <textarea type="text" name="eventTitle" id="eventTitle" class="form-control input-md" tabindex="2" placeholder="Título"
+                                      rows="5" ng-model="MessageToEdit.Title" tooltip="Título" tooltip-placement="right" required autofocus></textarea>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <textarea type="text" name="eventDescription" id="eventDescription" class="form-control input-md" tabindex="2" placeholder="Descrição"
+                                      rows="20" ng-model="MessageToEdit.Message" tooltip="Descrição" tooltip-placement="right" required></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <h4>Público-Alvo: {{MessageToEdit.IsRestricted | MessageRestrictionToWord}}</h4>
+                        <div class="btn-group">
+                            <!--<label class="btn btn-danger" ng-model="MessageToEdit.IsRestricted" btn-radio="true">Restrito</label>-->
+                            <label class="btn btn-info" ng-model="MessageToEdit.IsRestricted" btn-radio="false">Público</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Data de validade:</h4>
+                        <div class="col-xs-4 col-md-3" tooltip="Dia" tooltip-placement="right">
+                            <input type="number" name="eventDay" id="eventDay" class="form-control input-lg" placeholder="Dia" ng-model="MessageToEdit.ValidDay"
+                                   maxlength="2" min="1" max="31" />
+                        </div>
+
+                        <div class="col-xs-4 col-md-3" tooltip="Mês" tooltip-placement="right">
+                            <select ng-options="x for x in [1,2,3,4,5,6,7,8,9,10,11,12]" ng-model="MessageToEdit.ValidMonth"
+                                    name="eventMonth" id="eventMonth" class="form-control input-lg" placeholder="Mês"></select>
+                        </div>
+                        <div class="col-xs-4 col-md-3" tooltip="Ano" tooltip-placement="right">
+                            <input type="number" name="eventYear" id="eventYear" class="form-control input-lg" placeholder="Ano" maxlength="4" min="2017" max="2099" ng-model="MessageToEdit.ValidYear">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-5 col-md-3 pull-right">
+                            <button class="btn btn-primary btn-block" type="reset" aria-label="Close" ng-click="cancel()">Cancelar</button>
+                        </div>
+                        <div class="col-xs-5 col-md-3 pull-right">
+                            <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

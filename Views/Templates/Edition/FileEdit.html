@@ -1,0 +1,63 @@
+﻿
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>Documento</h3></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" enctype="multipart/form-data" name="documentForm" ng-submit="saveDocument(DocumentToEdit, docFile)">
+                <div class="row">
+                    <div class="col-xs-11 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="title" id="fileName" class="form-control input-lg"
+                                   placeholder="Título do ficheiro" tabindex="1" ng-model="DocumentToEdit.Title" tooltip="Título do ficheiro" tooltip-placement="right"
+                                   required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <textarea type="text" name="description" id="description" class="form-control input-lg" placeholder="Descrição do ficheiro"
+                                      tabindex="2" rows="5" ng-model="DocumentToEdit.Resume" tooltip="Descrição do ficheiro" tooltip-placement="right"></textarea>
+
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <br>Ficheiro:
+                                <a ng-show="DocumentToEdit.Url" target="_self" ng-href="{{pdfsDownloadUrl}}/{{DocumentToEdit.Url}}" download="{{DocumentToEdit.Url}}">{{DocumentToEdit.Url}}</a>
+                                <button ng-click="markFileToRemove()" ng-show="DocumentToEdit.Url" class="btn btn-primary btn-sm" type="button">Remover</button>
+                                <input type="file" ngf-select ng-model="docFile" name="file"
+                                       accept="application/pdf"
+                                       ngf-model-invalid="errorFile" ng-disabled="removeFile">
+                                <button ng-show="docFile.size" ng-click="docFile = null" class="btn btn-primary btn-sm" type="button">Remover</button>
+                                <i ng-show="documentForm.file.$error.required">*required</i><br>
+                                <i ng-show="documentForm.file.$error.maxSize">
+                                    File too large
+                                    {{errorFile.size / 1000000|number:1}}MB: max 2M
+                                </i>
+                                <img ng-show="documentForm.file.$valid" ngf-thumbnail="docFile" class="thumb">
+                                <br>
+                                <br>
+                                <span class="progress" ng-show="docFile.progress >= 0">
+                                    <div style="width:{{docFile.progress}}%"
+                                         ng-bind="docFile.progress + '%'"></div>
+                                </span>
+                                <span ng-show="docFile.result">Upload Successful</span>
+                                <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <button class="btn btn-primary btn-block" data-dismiss="modal" aria-label="Close" type="reset" ng-click="cancel()">Cancelar</button>
+                    </div>
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

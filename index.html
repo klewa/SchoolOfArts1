@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="schoolApp">
+<head>
+    <style>
+        .modal {
+            display: block;
+        }
+
+            .modal.modal-wide .modal-dialog {
+                width: 90%;
+            }
+
+        .modal-wide .modal-body {
+            overflow-y: auto;
+        }
+
+        #tallModal .modal-body p {
+            margin-bottom: 900px;
+        }
+    </style>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #428473;
+            overflow-x:hidden;
+        }
+        body, button {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            padding-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        nav {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            background: rgba(255, 255, 255, 0.8);
+            text-transform:uppercase;
+            font-size:medium;
+        }
+
+            nav li, nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+
+            nav li, nav a {
+                display: inline-block;
+            }
+
+            nav a {
+                padding: 10px;
+                color: #333;
+                text-decoration: none;
+            }
+
+        a:hover {
+            background: #fff;
+        }
+
+        a.active {
+            background: #00AC7F;
+            color: #fff;
+        }
+
+        .wrap {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            padding: 50px 0 30px 0;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        button {
+            font-size: 18px;
+            border: 0;
+            padding: 15px 30px;
+            background: #00AC7F;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .handCursor {
+            cursor: pointer;
+        }
+            @media (max-width: @screen-xs) {
+    body{font-size: 10px;}
+}
+
+@media (max-width: @screen-sm) {
+    h3{font-size: 3px;}
+}
+h3{
+    font-size: 1em;
+}
+
+h2{
+    font-size: 1.2em;
+}   
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href="css/onepagescroll.css" rel="stylesheet" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/angular.ng-notify/0.6.0/ng-notify.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Content/ngDialog-theme-default.css" rel="stylesheet" />
+    <link href="Content/ngDialog.css" rel="stylesheet" />
+    <link rel="icon" href="Resources/Images/favicon.jpg">
+    <!--<link rel="stylesheet" href="css/generalStyles.css" />-->
+    <title>Escola de Artes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet" />
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--https://www.quora.com/How-do-I-use-a-full-page-image-background-in-AngularJS-based-web-app-->
+
+<body>
+    <!--<div>
+        <span class="visible-xs hidden-sm">xs</span>
+        <span class="hidden-xs visible-sm hidden-md">sm</span>
+        <span class="hidden-xs visible-md hidden-lg">md</span>
+        <span class="hidden-xs visible-lg">lg</span>
+    </div>-->
+
+    <div ng-include="'Views/Menu.html'"></div>
+    <div ng-view></div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="Scripts/bootstrap-support-ie10-width.js"></script>
+    <script src="Scripts/onepagescroll.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/angular.ng-notify/0.6.0/ng-notify.min.js"></script>
+    <script src="Scripts/angular-sanitize.min.js"></script>
+
+    <script src="Scripts/linq.min.js"></script>
+    <script src="Scripts/App/app.js"></script>
+    <script src="Scripts/App/controllers.js"></script>
+    <script src="Scripts/App/services.js"></script>
+    
+
+    <script src="Scripts/App/Services/ArticleService.js"></script>
+    <script src="Scripts/App/Services/ContactService.js"></script>
+    <script src="Scripts/App/Services/StaffService.js"></script>
+    <script src="Scripts/App/Services/EventService.js"></script>
+    <script src="Scripts/App/Services/OfficeHourService.js"></script>
+    <script src="Scripts/App/Services/MessageService.js"></script>
+    <script src="Scripts/App/Services/DocumentService.js"></script>
+    <script src="Scripts/App/Services/MessageBoxService.js"></script>
+    <script src="Scripts/App/Services/UtilityService.js"></script>
+    <script src="Scripts/App/Services/AttachmentService.js"></script>
+    <script src="Scripts/App/Services/AuthService.js"></script>
+    <script src="Scripts/App/Services/LocalStorageService.js"></script>
+    <script src="Scripts/App/Services/SessionStorageService.js"></script>
+
+    <script src="Scripts/App/Controllers/ContactInfoController.js"></script>
+    <script src="Scripts/App/Controllers/HomeController.js"></script>
+    <script src="Scripts/App/Controllers/StaffController.js"></script>
+    <script src="Scripts/App/Controllers/EventsController.js"></script>
+    <script src="Scripts/App/Controllers/SecretaryOfficeController.js"></script>
+    <script src="Scripts/App/Controllers/InformationCoursesController.js"></script>
+    <script src="Scripts/App/Controllers/InformationCoursesMenuController.js"></script>
+    <script src="Scripts/App/Controllers/DocumentsController.js"></script>
+    <script src="Scripts/App/Controllers/DocumentsMenuController.js"></script>
+    <script src="Scripts/App/Controllers/DashboardController.js"></script>
+    <script src="Scripts/App/Controllers/HeaderController.js"></script>
+    <script src="Scripts/App/Controllers/LoginController.js"></script>
+    <script src="Scripts/App/Controllers/InformationDetailController.js"></script>
+    <script src="Scripts/App/Controllers/EventDetailController.js"></script>
+
+    <script src="Scripts/App/Directives/MenuBrickDirective.js"></script>
+    <script src="Scripts/App/Directives/GoDownControlDirective.js"></script>
+    <script src="Scripts/App/Directives/DownloadFileDirective.js"></script>
+    <script src="Scripts/App/Directives/DownloadFilesDirective.js"></script>
+    <script src="Scripts/App/Directives/LandingElementDirective.js"></script>
+    <script src="Scripts/App/Directives/FooterDirective.js"></script>
+    <script src="Scripts/App/Directives/GoUpControlDirective.js"></script>
+    <script src="Scripts/App/Directives/MessageDirective.js"></script>
+    <script src="Scripts/App/Directives/EventDirective.js"></script>
+    <script src="Scripts/App/Directives/ProfessorDirective.js"></script>
+    <script src="Scripts/App/Directives/MenuBreadCrumbsDirective.js"></script>
+    <script src="Scripts/App/Directives/PDFViewerDirective.js"></script>
+    <script src="Scripts/App/Directives/EmployeeSexConverterDirective.js"></script>
+    
+
+    <script src="Scripts/App/Filters/MonthNumberToWord.js"></script>
+    <script src="Scripts/App/Filters/MessageRestrictionToWord.js"></script>
+    <script src="Scripts/App/Filters/HourTypeToWord.js"></script>
+    <script src="Scripts/App/Filters/TextLimit.js"></script>
+    <script src="Scripts/App/Filters/RemoveWhiteSpacesFilter.js"></script>
+    <script src="Scripts/App/Filters/EmployeeSexToWords.js"></script>
+    <script src="Scripts/App/Filters/ProfessorOrNotFilter.js"></script>
+
+    <script src="Scripts/App/JSExensions/Extensions.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/ng-file-upload.min.js"></script>
+    <script src="Scripts/ng-file-upload-shim.js"></script>
+    <script src="Scripts/ngDialog.js"></script>
+    <script src="Scripts/ngDialog.min.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+
+    <script type="text/ng-template" id="modalWindowTemplte.html">
+        <div tabindex="-1" role="dialog" class="modal fade" ng-class="{in: animate}" ng-style="{'z-index': 1050 + index*10, display: 'block'}">
+            <div class="modal-backdrop fade in"></div>
+            <div class="modal-dialog" ng-class="{'modal-sm': size == 'sm', 'modal-lg': size == 'lg'}"><div class="modal-content" modal-transclude></div></div>
+        </div>
+    </script>
+    <script>
+
+
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 800);
+                    return false;
+                }
+            }
+        });
+
+        $('span').tooltip()
+
+        $(document).ready(function () {
+
+            /* Every time the window is scrolled ... */
+            $(window).scroll(function () {
+
+                /* Check the location of each desired element */
+                $('.hideme').each(function (i) {
+
+                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    /* If the object is completely visible in the window, fade it it */
+                    if (bottom_of_window > bottom_of_object) {
+
+                        $(this).animate({ 'opacity': '1' }, 200);
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

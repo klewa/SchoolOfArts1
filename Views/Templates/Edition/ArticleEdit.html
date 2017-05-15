@@ -1,0 +1,59 @@
+﻿
+<div>
+    <div class="row">
+        <div class="well col-xs-11 col-md-12"><h3>{{ArticleTitle}}</h3></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-11 col-md-12">
+            <form role="form" enctype="multipart/form-data" name="employeeForm" ng-submit="saveArticle(ArticleToEdit, picFile)">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+                                <textarea type="text" name="description" id="description" class="form-control input-sm" tabindex="2" placeholder="Conteúdo"
+                                          rows="20" cols="20" ng-model="ArticleToEdit.Content" tooltip="Conteúdo" tooltip-placement="right"></textarea>
+                            </div>
+                            <div class="row">
+                                <br>Conteúdo visual:
+                                <br />
+                                <img ng-show="ArticleToEdit.ImageUrl" ng-src="{{picturesDownloadUrl}}/{{ArticleToEdit.ImageUrl}}" class="thumb">
+                                <button ng-click="markPicToRemove()" ng-show="ArticleToEdit.ImageUrl" class="btn btn-primary btn-sm" type="button">Remover</button>
+                                <input type="file" ngf-select ng-model="picFile" name="file"
+                                       accept="image/*"
+                                       ngf-model-invalid="errorFile" ng-disabled="removePic">
+                                <i ng-show="employeeForm.file.$error.required">*required</i><br>
+                                <i ng-show="employeeForm.file.$error.maxSize">
+                                    File too large
+                                    {{errorFile.size / 1000000|number:1}}MB: max 2M
+                                </i>
+                                <img ng-show="employeeForm.file.$valid" ngf-thumbnail="picFile" class="thumb" ng-disabled="removePic">
+                                <button ng-click="picFile = null" ng-show="picFile.size" class="btn btn-primary btn-sm" type="button">Remover</button>
+                                <br>
+                                <!--<span class="progress" ng-show="picFile.progress >= 0">
+                                    <div style="width:{{picFile.progress}}%"
+                                         ng-bind="picFile.progress + '%'">
+
+                                    </div>
+                                </span>
+                                <span ng-show="picFile.result">Upload Successful</span>
+                                <span class="err" ng-show="errorMsg">{{errorMsg}}</span>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <button class="btn btn-primary btn-block" ng-click="cancel()" type="reset">Cancelar</button>
+                    </div>
+                    <div class="col-xs-5 col-md-3 pull-right">
+                        <input type="submit" value="Gravar" class="btn btn-primary btn-block" tabindex="7">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
